@@ -1,10 +1,11 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import styles from "styles/Home.module.scss"
+import type { NextPage } from "next"
+import Head from "next/head"
+import styles from "styles/components/Home/Home.module.scss"
 
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
+
       <Head>
         <title>Team guru - UI UX SKVOST</title>
         <meta name="description" content="Team guru - UI UX SKVOST" />
@@ -17,7 +18,7 @@ const Home: NextPage = () => {
           chat-app <a href="#">TEAM GURU</a>
         </h1>
 
-        <p className={styles.introText}>Coming soon...</p>
+        <p className={styles.introText}>Coming soon ...</p>
 
       </main>
     </div>
