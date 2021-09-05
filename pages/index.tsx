@@ -17,7 +17,7 @@ const Home: NextPage = () => {
           chat-app <a href="#">TEAM GURU</a>
         </h1>
 
-        <p>Init</p>
+        <p className={styles.introText}>Coming soon...</p>
 
       </main>
     </div>
