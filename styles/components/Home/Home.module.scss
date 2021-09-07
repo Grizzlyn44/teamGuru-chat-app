@@ -1,39 +1,106 @@
+@import 'styles/variables/colors';
+
+$loadingBar-width: 2rem;
+$loadingBar-cubic: cubic-bezier(0.16, 1, 0.3, 1);
+
 .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    min-height: 100vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden !important;
 }
 
 .main {
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    padding: 5rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-  text-align: center;
+    margin: 0;
+    line-height: 1.15;
+    font-size: 4rem;
+    text-align: center;
 
-  a {
-    color: #0070f3;
-    text-decoration: none;
-    &:hover,
-    &:focus,
-    &:active {
-      text-decoration: underline;
+    a {
+        color: #0070f3;
+        text-decoration: none;
+        &:hover,
+        &:focus,
+        &:active {
+            text-decoration: underline;
+        }
     }
-  }
 }
 
 .introText {
-  margin-top: 3rem;
+    margin-top: 3rem;
+}
+
+.loadingBar {
+    width: 10rem;
+    height: 0.2rem;
+    position: relative;
+    transition: all 0.5s $loadingBar-cubic;
+    transition-delay: 1s;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #23272b;
+        border-radius: 2rem !important;
+    }
+
+    &:after {
+        left: 0;
+        width: $loadingBar-width;
+        background: #43a1fe;
+        animation: barAnimation 4s $loadingBar-cubic 0s infinite;
+        box-shadow: 0 0 2rem 5px #43a1fe;
+    }
+}
+
+.loginContent {
+    transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    position: relative;
+    transition-delay: 1.15s;
+}
+
+.logoutInner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    p {
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+        b {
+            font-weight: 600;
+        }
+    }
+}
+
+@keyframes barAnimation {
+    0% {
+        left: 0;
+    }
+    50% {
+        left: calc(100% - #{$loadingBar-width});
+    }
+    100% {
+        left: 0;
+    }
 }
