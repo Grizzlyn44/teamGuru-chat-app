@@ -4,8 +4,9 @@ import styles from "styles/components/Home/Home.module.scss"
 import { signIn, signOut, useSession } from "next-auth/client"
 import { Button } from "antd"
 import SvgIcon from 'components/Core/SvgIcon/SvgIcon'
+import { useEffect, useState } from "react"
 
-const loginButtonDivStyles = (condition: boolean, marginTopValue: string) => {
+const loadingScreenDivStyles = (condition: boolean, marginTopValue: string) => {
   return {
     transform: `scale(${ condition ? '1' : '0' })`,
     opacity: condition ? '1' : '0',
@@ -19,29 +20,51 @@ const loginButtonDivStyles = (condition: boolean, marginTopValue: string) => {
 const Home: NextPage = () => {
 
   const [session, loading] = useSession()
+  const [loadingData, setLoadingData] = useState(false)
 
   const marginTopValue = "2rem"
   const showLoginButtonDiv = !loading && !session
   const showLogoutButtonDiv = !loading && !!session
+
+  const showLoadingBar = loading || loadingData
+
   const headingIconDimensions = 6
   const loginContent = <Button onClick={() => signIn()}>Log In</Button>
   const logoutContent = (
     <div className={styles.logoutInner}>
-      <p>Logged as <b>{session?.user?.email}</b></p>
-      <Button onClick={() => signOut()}>Log Out</Button>
+      <p>Welcome back <b>{session?.user?.name}</b>, please wait</p>
+      {/* <Button onClick={() => signOut()}>Log Out</Button> */}
     </div>
   )
 
   const loadingDivStyles = {
-    marginTop: loading ? marginTopValue : '0rem',
-    opacity: loading ? '1' : '0',
-    maxHeight: loading? '3rem' : '0',
-    pointerEvent: loading ? 'auto' : 'none'
+    marginTop: showLoadingBar ? marginTopValue : '0rem',
+    opacity: showLoadingBar ? '1' : '0',
+    maxHeight: showLoadingBar? '3rem' : '0',
+    pointerEvent: showLoadingBar ? 'auto' : 'none'
   }
 
   const svgProps = {
     className: styles.svgBreathe
   }
+
+  useEffect( () => {
+
+    const getAllData = async () => {
+      const profileData = await fetch("http://localhost:3000/api/profile/me").then( async (res) => {
+        if(res.ok) {
+          return await res.json()
+        }
+        throw "Error"
+      })
+    }
+
+    if(!loading && !!session) {
+      setLoadingData(true)
+
+      getAllData()
+    }
+  }, [loading, session])
   
 
   return (
@@ -58,8 +81,8 @@ const Home: NextPage = () => {
         <SvgIcon icon={icons => icons.messages(svgProps)} width={headingIconDimensions} height={headingIconDimensions} />
         <div className={styles.loadingBar} style={loadingDivStyles} />
 
-        <div className={styles.loginContent} style={loginButtonDivStyles(showLoginButtonDiv, marginTopValue)}>{loginContent}</div>
-        <div className={styles.loginContent} style={loginButtonDivStyles(showLogoutButtonDiv, marginTopValue)}>{logoutContent}</div>
+        <div className={styles.loginContent} style={loadingScreenDivStyles(showLoginButtonDiv, marginTopValue)}>{loginContent}</div>
+        <div className={styles.loginContent} style={loadingScreenDivStyles(showLogoutButtonDiv, marginTopValue)}>{logoutContent}</div>
 
       </main>
     </div>

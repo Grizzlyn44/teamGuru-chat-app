@@ -10,7 +10,7 @@ const options = {
     ],
     callbacks: {
         async signIn(params) {
-            console.log("signin callback params", params)
+            // console.log("signin callback params", params)
             return true
         },
     }
