@@ -33,7 +33,6 @@ const Home: NextPage = () => {
   const logoutContent = (
     <div className={styles.logoutInner}>
       <p>Welcome back <b>{session?.user?.name}</b>, please wait</p>
-      {/* <Button onClick={() => signOut()}>Log Out</Button> */}
     </div>
   )
 
