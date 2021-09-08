@@ -38,6 +38,10 @@ const Home: NextPage = () => {
     maxHeight: loading? '3rem' : '0',
     pointerEvent: loading ? 'auto' : 'none'
   }
+
+  const svgProps = {
+    className: styles.svgBreathe
+  }
   
 
   return (
@@ -51,7 +55,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
 
-        <SvgIcon icon={icons => icons.messages} width={headingIconDimensions} height={headingIconDimensions} />
+        <SvgIcon icon={icons => icons.messages(svgProps)} width={headingIconDimensions} height={headingIconDimensions} />
         <div className={styles.loadingBar} style={loadingDivStyles} />
 
         <div className={styles.loginContent} style={loginButtonDivStyles(showLoginButtonDiv, marginTopValue)}>{loginContent}</div>

@@ -23,7 +23,7 @@ const SvgIcon = (props: Props) => {
         height: svgHeight,
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     }
 
     return <div style={svgDivStyle}>{icon(svgIcons)}</div>

@@ -93,6 +93,12 @@ $loadingBar-cubic: cubic-bezier(0.16, 1, 0.3, 1);
     }
 }
 
+.svgBreathe {
+    filter: drop-shadow(0 0 0 #318fe8) drop-shadow(0 0 0 #318fe8)
+        drop-shadow(0 0 0 #18191f);
+    animation: svgBreatheAnimation 3s cubic-bezier(0.45, 0, 0.55, 1) 0s infinite;
+}
+
 @keyframes barAnimation {
     0% {
         left: 0;
@@ -102,5 +108,20 @@ $loadingBar-cubic: cubic-bezier(0.16, 1, 0.3, 1);
     }
     100% {
         left: 0;
+    }
+}
+
+@keyframes svgBreatheAnimation {
+    0% {
+        filter: drop-shadow(0 0 1px #318fe8) drop-shadow(0 0 13px #318fe8)
+            drop-shadow(0 0 8px #18191f);
+    }
+    50% {
+        filter: drop-shadow(0 0 1px #318fe8) drop-shadow(0 0 33px #318fe8)
+            drop-shadow(0 0 8px #18191f);
+    }
+    100% {
+        filter: drop-shadow(0 0 1px #318fe8) drop-shadow(0 0 13px #318fe8)
+            drop-shadow(0 0 8px #18191f);
     }
 }
