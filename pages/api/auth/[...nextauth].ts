@@ -37,7 +37,7 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
             },
             async jwt(token, user, account, profile, isNewUser) {
 
-                console.log("token, user, account, profile, isNewUser", token, user, account, profile, isNewUser)
+                // console.log("token, user, account, profile, isNewUser", token, user, account, profile, isNewUser)
                 return token
             }
         },

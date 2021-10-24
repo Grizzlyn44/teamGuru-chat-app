@@ -47,7 +47,8 @@ const Home: NextPage = (props: any) => {
 
   const setUsernameHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const stringValue = event.target.value
-    setUsernameValue(stringValue)
+    const realStringValue = stringValue?.toLowerCase().replace(" ", "_").normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
+    setUsernameValue(realStringValue)
   }
 
   const apiUpdateUser = async (updateObject: object) => {
@@ -58,8 +59,6 @@ const Home: NextPage = (props: any) => {
     console.log("0", process.env)
 
     if(!NEXT_PUBLIC_WEB_ROOT_URL) throw new Error("NEXT_PUBLIC_WEB_ROOT_URL ENV is missing")
-
-    console.log("1")
 
     // const bodyData:IBody = { user }
 
@@ -153,13 +152,13 @@ const Home: NextPage = (props: any) => {
         setIsNewUser(false);
         loadData()
       }
-    }
-    console.log("?")
 
-    if(!!session && !isNewUser) {
-      setTimeout( () => {
-        Router.push("/home")
-      }, 3500)
+      if(!!session && !isNewUser && !loading) {
+        console.log("WTF session, isNewUser", session, isNewUser )
+        setTimeout( () => {
+          Router.push("/home")
+        }, 3500)
+      }
     }
 
   }, [loading, session])
