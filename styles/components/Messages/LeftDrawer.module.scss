@@ -2,3 +2,14 @@
     background-color: red;
     flex: 0 1 20rem;
 }
+
+@media (max-width: 1024px) {
+    .mainContainer {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        display: none;
+    }
+}
