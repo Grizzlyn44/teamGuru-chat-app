@@ -50,7 +50,7 @@ $loadingBar-cubic: cubic-bezier(0.16, 1, 0.3, 1);
     height: 0.2rem;
     position: relative;
     transition: all 0.5s $loadingBar-cubic;
-    transition-delay: 1s;
+    transition-delay: 2s;
 
     &:before,
     &:after {
@@ -76,7 +76,7 @@ $loadingBar-cubic: cubic-bezier(0.16, 1, 0.3, 1);
 .loginContent {
     transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     position: relative;
-    transition-delay: 1.15s;
+    transition-delay: 2s;
 }
 
 .logoutInner {

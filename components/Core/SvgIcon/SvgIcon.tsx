@@ -1,6 +1,6 @@
 import react from "react"
 
-import svgIcons, { SvgIcons } from "components/Core/SvgIcon/svgIcons"
+import svgIcons, { SvgIcons } from "components/core/SvgIcon/svgIcons"
 
 interface Props {
     width?: number | string;

@@ -9,8 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next-auth/mongodb-adapter": "0.0.2-pr.193-6071c497.276",
+    "@types/lodash": "^4.14.172",
+    "@types/mongoose": "^5.11.97",
+    "@types/next-auth": "^3.15.0",
     "antd": "^4.16.13",
     "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongodb": "^3.6.0",
+    "mongoose": "^6.0.5",
     "next": "11.1.2",
     "next-auth": "^3.29.0",
     "node-sass": "^5.0.0",
