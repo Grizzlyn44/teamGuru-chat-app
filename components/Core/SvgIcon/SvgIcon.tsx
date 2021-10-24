@@ -1,9 +1,9 @@
-// import {icons} from "components/core/SvgIcon/svgIcons"
+import { icons, SvgIcons } from "components/core/SvgIcon/svgIcons"
 
 interface Props {
     width?: number | string;
     height?: number | string;
-    icon: (svgIcon: any) => JSX.Element;
+    icon: (svgIcon: SvgIcons) => JSX.Element;
 }
 
 const getDimensionString = ( dimension: number | string ) : string => {
@@ -23,9 +23,7 @@ const SvgIcon = (props: Props) => {
         justifyContent: 'center',
         alignItems: 'center',
     }
-
-    return <div style={svgDivStyle}>ICON...</div>
-    // return <div style={svgDivStyle}>{icon(icons)}</div>
+    return <div style={svgDivStyle}>{icon(icons)}</div>
 }
 
 export default SvgIcon
