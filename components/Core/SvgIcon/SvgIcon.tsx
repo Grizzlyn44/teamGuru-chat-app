@@ -1,5 +1,4 @@
-import svgIcons, { SvgIcons } from "components/core/SvgIcon/svgIcons"
-
+import svgIcons,{ SvgIcons } from "components/core/SvgIcon/svgIcons"
 interface Props {
     width?: number | string;
     height?: number | string;
