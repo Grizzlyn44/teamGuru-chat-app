@@ -1,4 +1,4 @@
-import { icons, SvgIcons } from "components/core/SvgIcon/svgIcons"
+import { icons, SvgIcons } from "components/Core/SvgIcon/svgIcons";
 
 interface Props {
     width?: number | string;

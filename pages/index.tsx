@@ -4,7 +4,7 @@ import styles from "styles/components/Home/Home.module.scss"
 import { signIn, signOut, useSession, getSession } from "next-auth/client"
 import {Session as NextAuthSession} from "next-auth"
 import { Button } from "antd"
-import SvgIcon from 'components/core/SvgIcon/SvgIcon'
+import SvgIcon from 'components/Core/SvgIcon/SvgIcon'
 import { ChangeEvent, useEffect, useState } from "react"
 import { Input, Space } from 'antd';
 import Router from 'next/router'
