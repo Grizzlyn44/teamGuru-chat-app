@@ -1,8 +1,8 @@
-import svgIcons,{ SvgIcons } from "components/core/SvgIcon/svgIcons"
+import svgIcons from "components/core/SvgIcon/svgIcons"
 interface Props {
     width?: number | string;
     height?: number | string;
-    icon: (svgIcon: SvgIcons) => JSX.Element;
+    icon: (svgIcon: any) => JSX.Element;
 }
 
 const getDimensionString = ( dimension: number | string ) : string => {
