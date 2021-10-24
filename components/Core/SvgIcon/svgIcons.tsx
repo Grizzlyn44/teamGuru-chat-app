@@ -3,7 +3,7 @@ import React from "react"
 //     messages: (data?: object) => any//JSX.Element
 // }
 
-const Icons = {
+export const icons = {
     messages: (data = {}) => {
         return (
             <svg viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg" {...data}>
@@ -13,5 +13,3 @@ const Icons = {
         )
     }
 }
-
-export default Icons

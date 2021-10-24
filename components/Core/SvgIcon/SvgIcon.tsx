@@ -1,4 +1,5 @@
-import svgIcons from "components/core/SvgIcon/svgIcons"
+import {icons} from "components/core/SvgIcon/svgIcons"
+
 interface Props {
     width?: number | string;
     height?: number | string;
@@ -23,7 +24,7 @@ const SvgIcon = (props: Props) => {
         alignItems: 'center',
     }
 
-    return <div style={svgDivStyle}>{icon(svgIcons)}</div>
+    return <div style={svgDivStyle}>{icon(icons)}</div>
 }
 
 export default SvgIcon
