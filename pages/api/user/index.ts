@@ -29,12 +29,6 @@ export interface IResponseIsNewUser {
 //     })
 // }
 
-export const apiCreateUser = async (method: string) => {
-    /*
-    ...
-    */
-}
-
 const usernameCheck = (username: string) => {
     const normalUsername = username.replace(" ", "_").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
     if(username !== normalUsername) {
@@ -73,21 +67,21 @@ export default async ( req: NextApiRequest, res: NextApiResponse<any> ) => {
         try {
 
             const secret = process.env.JWT_SECRET
-            const claims = await getToken({ req, secret })
+            const claims:any = await getToken({ req, secret })
 
             const bodyData = JSON.parse(req.body)
 
-            const userId = bodyData.sub
+            const userId = claims.sub
 
             const updateData = generateUpdateObject(bodyData)
 
             console.log("updateData", updateData)
 
-            const queryFilter:FilterQuery<unknown> = { id: userId }
+            const queryFilter:FilterQuery<unknown> = { _id: userId }
             const queryUpdate:UpdateQuery<unknown> = { $set: updateData }
             const queryOptions:QueryOptions = { new: true }
                 
-            const User = await UserSchema.findOneAndUpdate( queryFilter, queryUpdate, queryOptions )
+            const User = await UserSchema.findOneAndUpdate(queryFilter, queryUpdate, queryOptions) //( queryFilter, queryUpdate, queryOptions )
 
             console.log("User", User)
 

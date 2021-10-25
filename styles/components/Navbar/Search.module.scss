@@ -1,0 +1,44 @@
+.searchContainer {
+    position: relative;
+}
+
+.suggestionContainer {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+    right: 0;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.suggestionItem {
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-bottom: 1px solid rgba(255, 255, 255, 0);
+        .image {
+            transform: scale(1.15);
+        }
+    }
+    &:nth-last-child(1) {
+        border-radius: 0 0 1rem 1rem;
+        border-bottom: 0;
+    }
+    .image {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 100%;
+        margin-right: 1rem;
+        transition: all 0.15s ease-in-out;
+    }
+    .suggestionInner {
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+    }
+}
