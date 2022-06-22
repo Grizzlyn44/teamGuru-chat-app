@@ -1,6 +1,67 @@
 .mainContainer {
-    background-color: orange;
-    flex: 0 1 20rem;
+    background-color: #1A1A1A;
+    flex: 0 1 31.25rem;
+    padding: 2.5rem 3.75rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .headerLeft{
+        display:flex;
+        align-items: center;
+        gap: 2rem;
+    }
+}
+
+.section {
+    display:flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    .sectionHeader{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        .sectionHeaderLeft{
+            display:flex;
+            gap: 0.1rem;
+        }
+    }
+    .membersInner {
+     display: flex;
+     flex-direction: column;
+     .member {
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        .memberLeft{
+            display: flex;
+            align-items: center;
+            gap: 1.0625rem;
+            align-items: center;
+            .profilePic {
+                width: 1.875rem;
+                height: 1.875rem;
+                border-radius: 1rem;
+            }
+        }
+        .memberRight {
+            display:flex;
+            align-items: center;
+        }
+     }
+    }
+    .mediaItems {
+        display: flex;
+        gap: 0.625rem;
+        .mediaPic {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 1.25rem;
+        }
+    }
 }
 
 @media (max-width: 1024px) {

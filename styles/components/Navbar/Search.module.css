@@ -1,0 +1,61 @@
+.searchContainer {
+  position: relative;
+}
+
+.suggestionContainer {
+  position: absolute;
+  bottom: 0;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  right: 0;
+  width: 100%;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.suggestionItem {
+  background: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.suggestionItem:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+
+.suggestionItem:hover .image {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.suggestionItem:nth-last-child(1) {
+  border-radius: 0 0 1rem 1rem;
+  border-bottom: 0;
+}
+
+.suggestionItem .image {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  margin-right: 1rem;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+.suggestionItem .suggestionInner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1rem;
+}
+/*# sourceMappingURL=Search.module.css.map */
